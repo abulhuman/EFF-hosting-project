@@ -104,7 +104,6 @@ module.exports.editInstractor = wrapAsync(async function (req, res) {
 })
 
 module.exports.deleteInstractor = wrapAsync(async function (req, res) {
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
     const { id } = req.params;
     await Instractor.findByIdAndDelete(id).then(function () {
         return res.json({

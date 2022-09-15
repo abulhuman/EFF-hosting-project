@@ -3,10 +3,12 @@ const router = require("express").Router();
 const multer = require("multer");
 const path = require("path");
 const { isLoggedIn } = require("../utils/isLoggedIn");
+const { coachFilesPath } = require('../index')
+
 // const {storage} = require('../cloudinary');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null,  ("photofiles"));
+    cb(null,  coachFilesPath);
   },
   filename: function (req, file, cb) {
     cb(

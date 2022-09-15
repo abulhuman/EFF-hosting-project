@@ -2,9 +2,6 @@ const Coach = require("../model/Coaches");
 const wrapAsync = require("../utils/wrapAsync");
 
 module.exports.CreateCoach = wrapAsync(async function (req, res) {
-  console.log(
-    "aefshyjgtfrewdfrghjgrewgthyjtrewqdefrg-===================================="
-  );
   const data = req.body;
   if (
     !(
@@ -32,17 +29,10 @@ module.exports.CreateCoach = wrapAsync(async function (req, res) {
   //   success: "success",
   //   data: newCoach,
   // });
-  console.log(req.body);
-  console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq-====================================")
   let photo = req.files?.thumbImage[0]?.filename
   let educationDocument = req.files?.fileSingle[0]?.filename
-  // data.educational_state
-  console.log(req.files.fileSingle)
-  console.log(req.files.thumbImage)
-  //     console.log(req.files.fileSingle)
 
   
-      console.log("hmmmmmmmmmmmmmmmmmm")
   const dataToBeInserted = {
     first_name: data.first_name,
     middle_name: data.middle_name,
@@ -64,9 +54,7 @@ module.exports.CreateCoach = wrapAsync(async function (req, res) {
     place_of_certificate_concede: data.place_of_certificate_concede,
     educational_document: educationDocument
   };
-  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
   const databaseInstance = new Coach(dataToBeInserted);
-  console.log("dddddddddddddddddddddddddddddddddddddd");
   await databaseInstance
     .save()
     
@@ -84,8 +72,6 @@ module.exports.CreateCoach = wrapAsync(async function (req, res) {
         status: 501,
       });
     });
-    
-    console.log("dddddddddddddddddddddddaaaaaaaaaaadawdawdawdawdddddddddddddd");
 });
 
 module.exports.editCoach = wrapAsync(async function (req, res) {
